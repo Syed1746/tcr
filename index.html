@@ -1,0 +1,1166 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TCR Hospital</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logotcr.jpg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link
+  rel="stylesheet"
+  href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css"
+/>
+
+
+    <style>
+        :root {
+  --cobra-gold: #b8863b;
+  --cobra-brown: #6b4f27;
+  --tcr-red: #e53935;
+  --tcr-blue: #1976d2;
+  --tcr-blue-dark: #154a8a;
+  --tcr-bg: #f9f6f2;
+}
+/* Smooth sticky header transition */
+.header-area .main-header-area {
+  transition: box-shadow 0.3s, transform 0.3s;
+  will-change: box-shadow, transform;
+  position: sticky;
+  top: 0;
+}
+.header-area .main-header-area.sticky {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transform: translateY(0);
+}
+
+.single_slider {
+  position: relative;
+  color: #fff; /* Ensures text is white and visible */
+  z-index: 1;
+  
+}
+
+.single_slider::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 40% dark overlay */
+  z-index: 0;
+}
+
+.slider_text {
+  position: relative;
+  z-index: 2;
+}
+
+.slider_text h3 {
+  font-size: 48px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.slider_text h3 span {
+  color: var(--tcr-red); /* Optional accent color */
+  font-weight: 600;
+}
+
+.slider_text p {
+  font-size: 18px;
+  max-width: 600px;
+  color: #eee;
+  margin-bottom: 24px;
+  
+}
+
+.slider_text {
+  text-align: center;
+  padding: 20px;
+}
+
+.slider_text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider_text h3 {
+    font-size: 32px;
+  }
+
+  .slider_text p {
+    font-size: 16px;
+  }
+}
+
+
+/* Logo hover effect */
+.header-area .logo img {
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+.header-area .logo img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* Navigation underline animation */
+.main-menu ul li a {
+  position: relative;
+  overflow: hidden;
+}
+.main-menu ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+  background: var(--tcr-red); /* color handled in external CSS */
+  /* color: var(--tcr-red); */
+}
+.main-menu ul li a:hover::after,
+.main-menu ul li a.active::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Navigation link scale on hover */
+.main-menu ul li a {
+  transition: color 0.2s, transform 0.2s;
+}
+.main-menu ul li a:hover,
+.main-menu ul li a.active {
+  transform: scale(1.08);
+}
+
+/* Appointment button pop effect */
+.Appointment .book_btn a {
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
+  will-change: transform;
+}
+.Appointment .book_btn a:hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* Responsive: add spacing and smooth menu open */
+@media (max-width: 991px) {
+  .main-header-area {
+    padding: 12px 0;
+  }
+  .mobile_menu {
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+    overflow: hidden;
+  }
+}
+
+/* General background and font color */
+body {
+  background: var(--tcr-bg);
+  color: var(--cobra-brown);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Header and Footer */
+.header-area, .footer {
+  background: var(--tcr-blue);
+  color: #fff;
+}
+.header-area .main-header-area .logo img,
+.footer .footer_logo img {
+  border-radius: 12px;
+  border: 2px solid var(--cobra-gold);
+  box-shadow: 0 4px 16px rgba(27, 43, 77, 0.12);
+}
+
+/* Section Titles */
+header {
+  color: var(--tcr-blue-dark);
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.section_title h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cobra-gold), var(--tcr-red));
+  margin: 12px auto 0;
+  border-radius: 2px;
+  animation: underlineGrow 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
+/* Buttons */
+.boxed-btn3, .boxed-btn3-white, .boxed-btn3-white-2 {
+  background: var(--tcr-red);
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+}
+.boxed-btn3:hover, .boxed-btn3-white:hover, .boxed-btn3-white-2:hover {
+  background: var(--cobra-gold);
+  color: var(--tcr-blue);
+  transform: translateY(-2px) scale(1.05);
+}
+
+
+/* Footer */
+.footer {
+  background: var(--tcr-blue-dark);
+  color: #fff;
+}
+.footer .footer_title {
+  color: var(--cobra-gold);
+}
+.footer a, .footer .footer_widget ul li a {
+  color: #fff;
+  transition: color 0.2s;
+}
+.footer a:hover, .footer .footer_widget ul li a:hover {
+  color: var(--tcr-red);
+}
+
+/* Add a subtle gold border to important sections */
+.container, .section_title, .footer_top {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(184,134,59,0.06);
+}
+    </style>
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <!-- <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 ">
+                            <div class="social_media_links">
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="#"> <i class="fa fa-envelope"></i> info@tcr.com</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> +91  88388 12351</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logotcr.jpg" height="80px " width="auto" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.html">home</a></li>
+                                        <li><a href="Department.html">Department</a></li>
+                                        
+                                        <li><a href="Doctors.html">Doctors</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="Appointment">
+                                <div class="book_btn d-none d-lg-block">
+                                    <a class="popup-with-form" href="#test-form">Make an Appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- slider_area_start -->
+<div class="slider_area">
+  <div class="slider_active owl-carousel">
+
+    <!-- Slide 1: Hospital Overview -->
+    <div class="single_slider d-flex align-items-center slider_bg_1">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="slider_text">
+              <h3>
+                <span>TCR Multispeciality</span><br>
+                Hospital Krishnagiri
+              </h3>
+              <p>
+                A 100-bedded multispeciality hospital located in the heart of Krishnagiri town.  
+                Equipped with modern ICU, advanced labs, and 24/7 ambulance service.
+              </p>
+              <a href="#about-us" class="boxed-btn3">About Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Our Specializations -->
+    <div class="single_slider d-flex align-items-center slider_bg_2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="slider_text">
+              <h3>
+                <span>Expert Care in</span><br>
+                Poisoning & Snake Bite
+              </h3>
+              <p>
+                100% success rate in treating snake bites, poisoning, partial hanging,  
+                and near-drowning cases—thousands of lives saved over 10 years.
+              </p>
+              <a href="#services" class="boxed-btn3">Our Specializations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Key Services -->
+    <div class="single_slider d-flex align-items-center slider_bg_3">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="slider_text">
+              <h3>
+                <span>Comprehensive</span><br>
+                Products & Services
+              </h3>
+              <p>
+                Lipid Profile, Liver & Kidney Function tests, ECG & X-Ray,  
+                TMT, Ultrasonogram, Dialysis, Veterinary Doppler—and more.
+              </p>
+              <a href="#products-services" class="boxed-btn3">View All Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- slider_area_end -->
+    <!-- service_area_start -->
+<div class="service_area">
+  <div class="container p-0">
+    <div class="row no-gutters">
+
+      <!-- Ambulance Service -->
+<div class="col-xl-4 col-md-4">
+    <div class="single_service">
+      <div class="icon">
+        <dotlottie-player src="https://lottie.host/f93e8951-4c94-41be-9a04-f81317b3006a/FiIQoWKGha.lottie" 
+          background="transparent"
+          speed="3"
+          loop
+          autoplay
+          style="width: 150px; height: 150px;">
+        </dotlottie-player>
+      </div>
+      <h3>Ambulance Service</h3>
+      <p>24/7 ambulance fleet with ventilator and A/C–equipped vehicles, ensuring safe transport of critical patients.</p>
+      <a href="tel:+916723563567" class="boxed-btn3-white">Call Now</a>
+    </div>
+  </div>
+  
+
+      <!-- Intensive Care Unit -->
+      <div class="col-xl-4 col-md-4">
+        <div class="single_service">
+            <div class="icon">
+                <dotlottie-player src="https://lottie.host/f627d4f2-1e3d-49ac-94aa-3e18d3567b74/wiqyn03AFN.lottie" 
+                
+                  background="transparent"
+                  speed="3"
+                  loop
+                  autoplay
+                  style="width: 150px; height: 150px;">
+                </dotlottie-player>   
+              </div>
+          <h3>Intensive Care Unit (ICU)</h3>
+          <p>Well-equipped ICU with 10 mechanical ventilators, multi-parameter monitors, defibrillator, and central O₂ & suction pipelines.</p>
+          <a href="#icu-details" class="boxed-btn3-white">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Diagnostics & Lab -->
+      <div class="col-xl-4 col-md-4">
+        <div class="single_service">
+            <dotlottie-player src="https://lottie.host/195a84ef-b01d-4977-a2fa-8dcf7fa7ae3f/GWsg3fMfqH.lottie" 
+            background="transparent"
+            speed="3"
+            loop
+            autoplay
+            style="width: 150px; height: 150px;">
+          </dotlottie-player>
+          <h3>Lab, X-Ray & ECG</h3>
+          <p>Comprehensive diagnostics: clinical lab tests, digital X-ray, ECG, ultrasonogram, and color Doppler echocardiogram.</p>
+          <a href="#diagnostics" class="boxed-btn3-white">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- service_area_end -->
+
+
+    <!-- welcome_tcr_area_start -->
+<div class="welcome_docmed_area">
+    <div class="container">
+      <div class="row">
+  
+        <!-- Left: Hospital Images -->
+        <div class="col-xl-6 col-lg-6">
+          <div class="welcome_thumb">
+            <div class="thumb_1">
+              <img src="img/about/about2tcr.png" alt="TCR Hospital Exterior">
+            </div>
+            <div class="thumb_2">
+              <img src="img/about/about2tcr.png" alt="TCR Hospital Interior">
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right: Welcome Text -->
+        <div class="col-xl-6 col-lg-6">
+          <div class="welcome_docmed_info">
+            <h2>Welcome to TCR Multispeciality Hospital</h2>
+            <h3>
+              TCR Multispeciality<br>
+              Hospital, Krishnagiri
+            </h3>
+            <p>
+              Established over 11 years ago on Chennai Bypass Road, TCR Multispeciality Hospital  
+              is a 100-bedded centre of excellence—offering advanced ICU care, emergency services,  
+              and a full suite of diagnostic and lab facilities.
+            </p>
+            <ul>
+              <li><i class="flaticon-right"></i> 100% success rate in treating snake bites & poisoning</li>
+              <li><i class="flaticon-right"></i> Fully-equipped ICU with 10 ventilators</li>
+              <li><i class="flaticon-right"></i> 24/7 ambulance service with onboard ventilator</li>
+              <li><i class="flaticon-right"></i> Comprehensive labs: X-ray, ECG, ultrasound & Doppler</li>
+            </ul>
+            <a href="#about-us" class="boxed-btn3-white-2">Learn More</a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <!-- welcome_tcr_area_end -->
+  
+
+    <!-- offers_area_start -->
+<div class="our_department_area">
+    <div class="container">
+      <!-- Section Title -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="section_title text-center mb-55">
+            <h3>Our Departments</h3>
+            <p>
+              Providing comprehensive care across specialties to meet all your health needs.<br>
+              From critical care to diagnostics and chronic disease management.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Departments Grid -->
+      <div class="row">
+  
+        <!-- Cardiac Care -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/department/cardiac.jpg" alt="Cardiac Care">
+            </div>
+            <div class="department_content">
+              <h3><a href="#cardiac-care">Cardiac Care</a></h3>
+              <p>
+                Advanced diagnostics and treatment for all heart conditions—TMT, echo, interventional cardiology.
+              </p>
+              <a href="#cardiac-care" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Diabetic Care -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/department/diabetiic.jpg" alt="Diabetic Care">
+            </div>
+            <div class="department_content">
+              <h3><a href="#diabetic-care">Diabetic Care</a></h3>
+              <p>
+                Comprehensive diabetes management: blood sugar monitoring, diet counseling & insulin therapy.
+              </p>
+              <a href="#diabetic-care" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Radiology & Imaging -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/department/radiology.jpg" alt="Radiology & Imaging">
+            </div>
+            <div class="department_content">
+              <h3><a href="#radiology">Radiology & Imaging</a></h3>
+              <p>
+                Digital X-ray, ultrasonogram & color Doppler echocardiogram with expert radiologists on standby.
+              </p>
+              <a href="#radiology" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Intensive Care Unit -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/about/about2tcr.png" alt="Intensive Care Unit">
+            </div>
+            <div class="department_content">
+              <h3><a href="#icu">Intensive Care Unit (ICU)</a></h3>
+              <p>
+                10-bed ICU with mechanical ventilators, central O₂/suction pipelines & multi-parameter monitors.
+              </p>
+              <a href="#icu" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Laboratory Services -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/department/lab.jpg" alt="Laboratory Services">
+            </div>
+            <div class="department_content">
+              <h3><a href="#lab-services">Lab Services</a></h3>
+              <p>
+                Full-spectrum lab tests: blood panels, lipid profile, liver & kidney function, serology & more.
+              </p>
+              <a href="#lab-services" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Dialysis Unit -->
+        <div class="col-xl-4 col-md-6 col-lg-4">
+          <div class="single_department">
+            <div class="department_thumb">
+              <img src="img/department/dialysis.jpg" alt="Dialysis Unit">
+            </div>
+            <div class="department_content">
+              <h3><a href="#dialysis">Dialysis Unit</a></h3>
+              <p>
+                Low-cost dialysis at ₹800/session with state-of-the-art machines for end-stage kidney care.
+              </p>
+              <a href="#dialysis" class="learn_more">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <!-- offers_area_end -->
+  
+
+    <!-- testmonial_area_start -->
+    <div class="testmonial_area">
+        <div class="testmonial_active owl-carousel">
+            <div class="single-testmonial testmonial_bg_1 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>I donated here my blood for so many years ❤️ <br>
+                                    Very HYGIENIC but Over Price Billing for the emergency patients. My friend / Schoolmate Shaveer Basha is working here as the main Administrative Officer here. </p>
+                                <div class="testmonial_author">
+                                    <h4>Kathiravan</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-testmonial testmonial_bg_2 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>Good treatment for especially snake bites and poison related treatments.. <br> Krishnagiri people's are very luck to avail good treatments from this hospital... Most of people's are coming from very long Distance & availing better treatments..So local people's to come forward at the earliest to save their valuable beloved lives... I got best treatment for my mother ...thanks TCR hospital ... </p>
+                                <div class="testmonial_author">
+                                    <h4>Rajendran</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-testmonial testmonial_bg_3 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>TCR multi specialty hospital is an excellent healthcare facility that offers top-notch care to its patients. <br>
+                                    Dr. C. SOUNDARA RAJ, M.D., is a skilled and caring Doctor who takes good care of each patient admitted to the hospital. Patients can feel confident that they are in good hands under his care.
+                                    The commitment of TCR Multi Specialty Hospital's staff and nurses to offering exceptional healthcare services is admirable
+                                    Thank you so much TCR 🙏</p>
+                                <div class="testmonial_author">
+                                    <h4>Govindaraj Kasirajan</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testmonial_area_end -->
+
+    <!-- business_expert_area_start  -->
+<div class="business_expert_area">
+    <!-- Tab Navigation -->
+    <div class="business_tabs_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <ul class="nav" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="services-tab"
+                  data-toggle="tab"
+                  href="#services"
+                  role="tab"
+                  aria-controls="services"
+                  aria-selected="true"
+                >Excellent Services</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="doctors-tab"
+                  data-toggle="tab"
+                  href="#doctors"
+                  role="tab"
+                  aria-controls="doctors"
+                  aria-selected="false"
+                >Qualified Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="emergency-tab"
+                  data-toggle="tab"
+                  href="#emergency"
+                  role="tab"
+                  aria-controls="emergency"
+                  aria-selected="false"
+                >Emergency Departments</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Tab Content -->
+    <div class="container">
+      <div class="border_bottom">
+        <div class="tab-content" id="myTabContent">
+  
+          <!-- Excellent Services Tab -->
+          <div
+            class="tab-pane fade show active"
+            id="services"
+            role="tabpanel"
+            aria-labelledby="services-tab"
+          >
+            <div class="row align-items-center">
+              <div class="col-xl-6 col-md-6">
+                <div class="business_info">
+                  <div class="icon">
+                    <i class="flaticon-first-aid-kit"></i>
+                  </div>
+                  <h3>Comprehensive Care You Can Trust</h3>
+                  <p>
+                    From advanced diagnostics (X-ray, ECG, Doppler) to full‐scale lab  
+                    services and ICU support, TCR offers 100% success in critical cases  
+                    like snake bites, poisoning, partial hanging, and near-drowning.
+                  </p>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6">
+                <div class="business_thumb">
+                  <img src="img/department/tcrexcell.jpg" height="400px" width="auto" style="object-fit: cover;" alt="Excellent Services at TCR">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Qualified Doctors Tab -->
+          <div
+            class="tab-pane fade"
+            id="doctors"
+            role="tabpanel"
+            aria-labelledby="doctors-tab"
+          >
+            <div class="row align-items-center">
+              <div class="col-xl-6 col-md-6">
+                <div class="business_info">
+                  <div class="icon">
+                    <i class="flaticon-doctor"></i>
+                  </div>
+                  <h3>Board-Certified Specialists</h3>
+                  <p>
+                    Our lead physician, Dr. Soundara Rajan (M.D. Gen. Med., Madras Medical College),  
+                    is fellowship-trained in cardiology and boasts a decade of ICU experience at Apollo  
+                    & Madras Medical Mission, ensuring expert care for every patient.
+                  </p>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6">
+                <div class="business_thumb">
+                  <img src="img/department/doctors.jpg" alt="Qualified Doctors at TCR">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Emergency Departments Tab -->
+          <div
+            class="tab-pane fade"
+            id="emergency"
+            role="tabpanel"
+            aria-labelledby="emergency-tab"
+          >
+            <div class="row align-items-center">
+              <div class="col-xl-6 col-md-6">
+                <div class="business_info">
+                  <div class="icon">
+                    <i class="flaticon-emergency-call"></i>
+                  </div>
+                  <h3>24/7 Emergency Response</h3>
+                  <p>
+                    Our fully-equipped ER and ambulance fleet (with onboard ventilators) are  
+                    on standby around the clock—ready to deliver life-saving interventions  
+                    from the roadside to our ICU.
+                  </p>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6">
+                <div class="business_thumb">
+                  <img src="img/department/emergency.jpg" alt="Emergency Department at TCR">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- business_expert_area_end  -->
+  
+
+
+    <!-- expert_doctors_area_start -->
+    <div class="expert_doctors_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="doctors_title mb-55">
+                        <h3>Expert Doctors</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="expert_active owl-carousel">
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/1.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/2.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/3.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/4.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/1.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/2.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- expert_doctors_area_end -->
+
+    <!-- Emergency_contact start -->
+<div class="Emergency_contact">
+    <div class="conatiner-fluid p-0">
+      <div class="row no-gutters">
+  
+        <!-- Emergency Hotline -->
+        <div class="col-xl-6">
+          <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
+            <div class="info">
+              <h3>For 24/7 Emergency Assistance</h3>
+              <p>Our ambulance fleet is ready to dispatch immediately.</p>
+            </div>
+            <div class="info_button">
+              <a href="tel:+919876543210" class="boxed-btn3-white">+91 98765 43210</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Online Appointment -->
+        <div class="col-xl-6">
+          <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
+            <div class="info">
+              <h3>Book an Online Appointment</h3>
+              <p>Schedule your consultation with our specialists today.</p>
+            </div>
+            <div class="info_button">
+              <a href="#appointment" class="boxed-btn3-white">Make an Appointment</a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <!-- Emergency_contact end -->
+  
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="footer_top">
+      <div class="container">
+        <div class="row">
+  
+          <!-- Logo & About -->
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="footer_widget">
+              <div class="footer_logo">
+                <a href="#">
+                  <img src="img/logotcr.jpg" height="100" alt="TCR Multispeciality Hospital logo">
+                </a>
+              </div>
+              <p>
+                TCR Multispeciality Hospital is a 100-bedded centre of excellence on Chennai Bypass Road,  
+                Krishnagiri—specializing in critical care, emergency response, and advanced diagnostics.
+              </p>
+              <div class="socail_links">
+                <ul>
+                  <li><a href="#"><i class="ti-facebook"></i></a></li>
+                  <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Departments / Services -->
+          <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+            <div class="footer_widget">
+              <h3 class="footer_title">Our Services</h3>
+              <ul>
+                <li><a href="#ambulance">Ambulance Service</a></li>
+                <li><a href="#icu">Intensive Care Unit (ICU)</a></li>
+                <li><a href="#lab-services">Lab, X-Ray & ECG</a></li>
+                <li><a href="#cardiac-care">Cardiac Care</a></li>
+                <li><a href="#diabetic-care">Diabetic Care</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Useful Links -->
+          <div class="col-xl-2 col-md-6 col-lg-2">
+            <div class="footer_widget">
+              <h3 class="footer_title">Quick Links</h3>
+              <ul>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#products-services">Products & Services</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+                <li><a href="#infrastructure">Infrastructure</a></li>
+                <li><a href="#factsheet">Factsheet</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Contact / Address -->
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="footer_widget">
+              <h3 class="footer_title">Contact Us</h3>
+              <p>
+                Chennai Bypass Road,<br>
+                Krishnagiri, Tamil Nadu<br>
+                <a href="tel:+919876543210">+91 98765 43210</a><br>
+                <a href="mailto:info@tcrhospital.com">info@tcrhospital.com</a>
+              </p>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- Copyright -->
+    <div class="copy-right_text">
+      <div class="container">
+        <div class="footer_border"></div>
+        <div class="row">
+          <div class="col-xl-12">
+            <p class="copy_right text-center">
+              &copy;<script>document.write(new Date().getFullYear());</script>  
+              TCR Multispeciality Hospital. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <a href="https://api.whatsapp.com/send/?phone=+918838812351&amp;text=Hi&amp;type=phone_number&amp;app_absent=0" class="float" target="_blank" aria-label="Contact us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+    </svg>
+</a>
+  
+    <!-- link that opens popup -->
+
+    <!-- form itself end-->
+    <form id="test-form" class="white-popup-block mfp-hide">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <h3>Make an Appointment</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <input id="datepicker" placeholder="Pick date">
+                        </div>
+                        <div class="col-xl-6">
+                            <input id="datepicker2" placeholder="Suitable time">
+                        </div>
+                        <div class="col-xl-6">
+                            <select class="form-select wide" id="default-select" class="">
+                                <option data-display="Select Department">Department</option>
+                                <option value="1">Eye Care</option>
+                                <option value="2">Physical Therapy</option>
+                                <option value="3">Dental Care</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-6">
+                            <select class="form-select wide" id="default-select" class="">
+                                <option data-display="Doctors">Doctors</option>
+                                <option value="1">Mirazul Alom</option>
+                                <option value="2">Monzul Alom</option>
+                                <option value="3">Azizul Isalm</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text"  placeholder="Name">
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text"  placeholder="Phone no.">
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="email"  placeholder="Email">
+                        </div>
+                        <div class="col-xl-12">
+                            <button type="submit" class="boxed-btn3">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </form>
+    <!-- form itself end -->
+
+    <!-- JS here -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+        });
+        $('#datepicker2').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+
+        });
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+    </script>
+</body>
+
+</html>

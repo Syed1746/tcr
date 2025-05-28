@@ -1,0 +1,550 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Docmed</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+  --cobra-gold: #b8863b;
+  --cobra-brown: #6b4f27;
+  --tcr-red: #e53935;
+  --tcr-blue: #1976d2;
+  --tcr-blue-dark: #154a8a;
+  --tcr-bg: #f9f6f2;
+}
+/* Smooth sticky header transition */
+.header-area .main-header-area {
+  transition: box-shadow 0.3s, transform 0.3s;
+  will-change: box-shadow, transform;
+  position: sticky;
+  top: 0;
+}
+.header-area .main-header-area.sticky {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transform: translateY(0);
+}
+
+/* Logo hover effect */
+.header-area .logo img {
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+.header-area .logo img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* Navigation underline animation */
+.main-menu ul li a {
+  position: relative;
+  overflow: hidden;
+}
+.main-menu ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+  background: var(--tcr-red); /* color handled in external CSS */
+  /* color: var(--tcr-red); */
+}
+.main-menu ul li a:hover::after,
+.main-menu ul li a.active::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Navigation link scale on hover */
+.main-menu ul li a {
+  transition: color 0.2s, transform 0.2s;
+}
+.main-menu ul li a:hover,
+.main-menu ul li a.active {
+  transform: scale(1.08);
+}
+
+/* Appointment button pop effect */
+.Appointment .book_btn a {
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
+  will-change: transform;
+}
+.Appointment .book_btn a:hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* Responsive: add spacing and smooth menu open */
+@media (max-width: 991px) {
+  .main-header-area {
+    padding: 12px 0;
+  }
+  .mobile_menu {
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+    overflow: hidden;
+  }
+}
+
+/* General background and font color */
+body {
+  background: var(--tcr-bg);
+  color: var(--cobra-brown);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Header and Footer */
+.header-area, .footer {
+  background: var(--tcr-blue);
+  color: #fff;
+}
+.header-area .main-header-area .logo img,
+.footer .footer_logo img {
+  border-radius: 12px;
+  border: 2px solid var(--cobra-gold);
+  box-shadow: 0 4px 16px rgba(27, 43, 77, 0.12);
+}
+
+/* Section Titles */
+header {
+  color: var(--tcr-blue-dark);
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.section_title h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cobra-gold), var(--tcr-red));
+  margin: 12px auto 0;
+  border-radius: 2px;
+  animation: underlineGrow 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
+/* Buttons */
+.boxed-btn3, .boxed-btn3-white, .boxed-btn3-white-2 {
+  background: var(--tcr-red);
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+}
+.boxed-btn3:hover, .boxed-btn3-white:hover, .boxed-btn3-white-2:hover {
+  background: var(--cobra-gold);
+  color: var(--tcr-blue);
+  transform: translateY(-2px) scale(1.05);
+}
+
+
+/* Footer */
+.footer {
+  background: var(--tcr-blue-dark);
+  color: #fff;
+}
+.footer .footer_title {
+  color: var(--cobra-gold);
+}
+.footer a, .footer .footer_widget ul li a {
+  color: #fff;
+  transition: color 0.2s;
+}
+.footer a:hover, .footer .footer_widget ul li a:hover {
+  color: var(--tcr-red);
+}
+
+/* Add a subtle gold border to important sections */
+.container, .section_title, .footer_top {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(184,134,59,0.06);
+}
+    </style>
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <!-- <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 ">
+                            <div class="social_media_links">
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="#"> <i class="fa fa-envelope"></i> info@tcr.com</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> +91  88388 12351</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logotcr.jpg" height="80px " width="auto" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.html">home</a></li>
+                                        <li><a href="Department.html">Department</a></li>
+                                        
+                                        <li><a href="Doctors.html">Doctors</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="Appointment">
+                                <div class="book_btn d-none d-lg-block">
+                                    <a class="popup-with-form" href="#test-form">Make an Appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area breadcam_bg_2 bradcam_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>contact</h3>
+                        <p><a href="index.html">Home /</a> contact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <!-- ================ contact section start ================= -->
+<section class="contact-section">
+    <div class="container">
+        <!-- Google Maps Embed -->
+        <div class="d-none d-sm-block mb-5 pb-4">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.111758529247!2d78.22109227329429!3d12.5087508248605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac348d3b5996ff%3A0x9724b58ad4eaf1be!2sTCR%20MULTISPECIALITY%20HOSPITAL!5e0!3m2!1sen!2sin!4v1748437402959!5m2!1sen!2sin" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Get in Touch</h2>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Enter Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="name" id="name" type="text" placeholder="Enter your name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="email" id="email" type="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-3 offset-lg-1">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>TCR Multispeciality Hospital</h3>
+                        <p>NH-44, Opposite Krishna Theatre, Krishnagiri, Tamil Nadu - 635001</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                    <div class="media-body">
+                        <h3>+91 98765 43210</h3>
+                        <p>Available 24/7 for emergencies</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-email"></i></span>
+                    <div class="media-body">
+                        <h3>info@tcrhospital.com</h3>
+                        <p>We respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->
+
+    
+<!-- footer start -->
+<footer class="footer">
+    <div class="footer_top">
+      <div class="container">
+        <div class="row">
+  
+          <!-- Logo & About -->
+          <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="footer_widget">
+              <div class="footer_logo">
+                <a href="#">
+                  <img src="img/logotcr.jpg" height="100" alt="TCR Multispeciality Hospital logo">
+                </a>
+              </div>
+              <p>
+                TCR Multispeciality Hospital is a 100-bedded centre of excellence on Chennai Bypass Road,  
+                Krishnagiri—specializing in critical care, emergency response, and advanced diagnostics.
+              </p>
+              <div class="socail_links">
+                <ul>
+                  <li><a href="#"><i class="ti-facebook"></i></a></li>
+                  <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Departments / Services -->
+          <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+            <div class="footer_widget">
+              <h3 class="footer_title">Our Services</h3>
+              <ul>
+                <li><a href="#ambulance">Ambulance Service</a></li>
+                <li><a href="#icu">Intensive Care Unit (ICU)</a></li>
+                <li><a href="#lab-services">Lab, X-Ray & ECG</a></li>
+                <li><a href="#cardiac-care">Cardiac Care</a></li>
+                <li><a href="#diabetic-care">Diabetic Care</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Useful Links -->
+          <div class="col-xl-2 col-md-6 col-lg-2">
+            <div class="footer_widget">
+              <h3 class="footer_title">Quick Links</h3>
+              <ul>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#products-services">Products & Services</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+                <li><a href="#infrastructure">Infrastructure</a></li>
+                <li><a href="#factsheet">Factsheet</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Contact / Address -->
+          <div class="col-xl-3 col-md-6 col-lg-3">
+            <div class="footer_widget">
+              <h3 class="footer_title">Contact Us</h3>
+              <p>
+                Chennai Bypass Road,<br>
+                Krishnagiri, Tamil Nadu<br>
+                <a href="tel:+919876543210">+91 98765 43210</a><br>
+                <a href="mailto:info@tcrhospital.com">info@tcrhospital.com</a>
+              </p>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- Copyright -->
+    <div class="copy-right_text">
+      <div class="container">
+        <div class="footer_border"></div>
+        <div class="row">
+          <div class="col-xl-12">
+            <p class="copy_right text-center">
+              &copy;<script>document.write(new Date().getFullYear());</script>  
+              TCR Multispeciality Hospital. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+  <a href="https://api.whatsapp.com/send/?phone=+918838812351&amp;text=Hi&amp;type=phone_number&amp;app_absent=0" class="float" target="_blank" aria-label="Contact us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+    </svg>
+</a>
+<!-- link that opens popup -->
+
+<!-- form itself end-->
+<form id="test-form" class="white-popup-block mfp-hide">
+<div class="popup_box ">
+    <div class="popup_inner">
+        <h3>Make an Appointment</h3>
+        <form action="#">
+            <div class="row">
+                <div class="col-xl-6">
+                    <input id="datepicker" placeholder="Pick date">
+                </div>
+                <div class="col-xl-6">
+                    <input id="datepicker2" placeholder="Suitable time">
+                </div>
+                <div class="col-xl-6">
+                    <select class="form-select wide" id="default-select" class="">
+                        <option data-display="Select Department">Department</option>
+                        <option value="1">Eye Care</option>
+                        <option value="2">Physical Therapy</option>
+                        <option value="3">Dental Care</option>
+                    </select>
+                </div>
+                <div class="col-xl-6">
+                    <select class="form-select wide" id="default-select" class="">
+                        <option data-display="Doctors">Doctors</option>
+                        <option value="1">Mirazul Alom</option>
+                        <option value="2">Monzul Alom</option>
+                        <option value="3">Azizul Isalm</option>
+                    </select>
+                </div>
+                <div class="col-xl-6">
+                    <input type="text"  placeholder="Name">
+                </div>
+                <div class="col-xl-6">
+                    <input type="text"  placeholder="Phone no.">
+                </div>
+                <div class="col-xl-12">
+                    <input type="email"  placeholder="Email">
+                </div>
+                <div class="col-xl-12">
+                    <button type="submit" class="boxed-btn3">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</form>
+<!-- form itself end -->
+    
+        <!-- JS here -->
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/ajax-form.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/imagesloaded.pkgd.min.js"></script>
+        <script src="js/scrollIt.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/nice-select.min.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/gijgo.min.js"></script>
+    
+        <!--contact js-->
+        <script src="js/contact.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/mail-script.js"></script>
+    
+        <script src="js/main.js"></script>
+        <script>
+            $('#datepicker').datepicker({
+                iconsLibrary: 'fontawesome',
+                icons: {
+                 rightIcon: '<span class="fa fa-caret-down"></span>'
+             }
+            });
+            $('#datepicker2').datepicker({
+                iconsLibrary: 'fontawesome',
+                icons: {
+                 rightIcon: '<span class="fa fa-caret-down"></span>'
+             }
+    
+            });
+        </script>
+    </body>
+    
+    </html>

@@ -519,6 +519,7 @@ h3 {
 /* line 93, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_btn.scss */
 .boxed-btn3-white-2 {
   color: #ffff !important;
+  background: var(--tcr-red);
   display: inline-block;
   padding: 9px 24px;
   font-family: "Poppins", sans-serif;

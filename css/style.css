@@ -283,15 +283,43 @@ h3 {
 .bradcam_overlay::before {
   position: absolute;
   content: "";
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#5db2ff+0,7db9e8+100&1+24,0+96 */
-  background: -moz-linear-gradient(left, #5db2ff 0%, #65b4f9 24%, rgba(124, 185, 233, 0) 96%, rgba(125, 185, 232, 0) 100%);
+
+  /* Red‐based gradient (from solid red to transparent) */
+  /* You can adjust the “#ff5d5d” and “#e74c3c” stops to match your exact logo red if needed */
+  background: -moz-linear-gradient(
+    left,
+    #ff5d5d 0%,
+    #e74c3c 24%,
+    rgba(231, 76, 60, 0) 96%,
+    rgba(231, 76, 60, 0) 100%
+  );
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #5db2ff 0%, #65b4f9 24%, rgba(124, 185, 233, 0) 96%, rgba(125, 185, 232, 0) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #5db2ff 0%, #65b4f9 24%, rgba(124, 185, 233, 0) 96%, rgba(125, 185, 232, 0) 100%);
+
+  background: -webkit-linear-gradient(
+    left,
+    #ff5d5d 0%,
+    #e74c3c 24%,
+    rgba(231, 76, 60, 0) 96%,
+    rgba(231, 76, 60, 0) 100%
+  );
+  /* Chrome10-25, Safari5.1-6 */
+
+  background: linear-gradient(
+    to right,
+    #ff5d5d 0%,
+    #e74c3c 24%,
+    rgba(231, 76, 60, 0) 96%,
+    rgba(231, 76, 60, 0) 100%
+  );
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', endColorstr='#007db9e8',GradientType=1 );
+
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr='#ff5d5d',
+    endColorstr='#00e74c3c',
+    GradientType=1
+  );
   /* IE6-9 */
+
   top: 0;
   left: 0;
   width: 100%;
@@ -299,6 +327,7 @@ h3 {
   z-index: -1;
   opacity: 1;
 }
+
 
 /* line 212, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/theme-default.scss */
 .section-padding {

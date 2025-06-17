@@ -148,6 +148,88 @@ header {
   transform: translateY(-2px) scale(1.05);
 }
 
+.contact-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.contact-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #222;
+}
+
+/* Form styling */
+#contactForm input,
+#contactForm textarea {
+    border: 1px solid #ced4da;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.button-contactForm {
+    background-color: #007bff;
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-contactForm:hover {
+    background-color: #0056b3;
+}
+
+/* Contact info icons and layout */
+.contact-info {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-info__icon {
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+
+.media-body h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.media-body p {
+    margin: 0;
+    color: #666;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .button-contactForm {
+        width: 100%;
+    }
+}
+
 
 /* Footer */
 .footer {
@@ -302,9 +384,6 @@ header {
   <div class="col-lg-8">
           <form id="contactForm">
             <div class="row">
-              <div class="col-12">
-                <textarea name="message" id="message" class="form-control w-100" rows="9" placeholder="Enter Message" required></textarea>
-              </div>
               <div class="col-sm-6">
                 <input name="name" id="name" type="text" class="form-control valid" placeholder="Enter your name" required>
               </div>
@@ -313,6 +392,9 @@ header {
               </div>
               <div class="col-12">
                 <input name="subject" id="subject" type="text" class="form-control" placeholder="Enter Subject" required>
+              </div>
+              <div class="col-12">
+                <textarea name="message" id="message" class="form-control w-100" rows="9" placeholder="Enter Message" required></textarea>
               </div>
             </div>
             <div class="form-group mt-3">
@@ -398,11 +480,11 @@ header {
             <div class="footer_widget">
               <h3 class="footer_title">Quick Links</h3>
               <ul>
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#products-services">Products & Services</a></li>
-                <li><a href="#contact-us">Contact Us</a></li>
-                <li><a href="#infrastructure">Infrastructure</a></li>
-                <li><a href="#factsheet">Factsheet</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Department.html">Department</a></li>
+                <li><a href="Doctors.html">Doctors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="#factsheet">Factsheet</a></li> -->
               </ul>
             </div>
           </div>
